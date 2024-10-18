@@ -22,7 +22,7 @@ public class App {
         optimal[1] = Math.min(s[0], x[0]);
         for (int i = 2; i <= n; i++) {
             int m = -1;
-            for (int j = 1; j <= i - 1; j++) {
+            for (int j = 1; j < i; j++) {
                 int l = 0;
                 for (int k = j; k < i; k++) {
                     l = l + Math.min(s[k - j], x[k]);
