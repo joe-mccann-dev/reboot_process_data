@@ -21,18 +21,18 @@ public class App {
         optimal[0] = 0;
         optimal[1] = Math.min(s[0], x[0]);
         for (int i = 2; i <= n; i++) {
-            int m = -1;
+            int current = -1;
             for (int j = 1; j < i; j++) {
-                int l = 0;
+                int total = 0;
                 for (int k = j; k < i; k++) {
-                    l = l + Math.min(s[k - j], x[k]);
+                    total += Math.min(s[k - j], x[k]);
                 }
-                l = l + optimal[j - 1];
-                if (l > m) {
-                    m = l;
+                total += optimal[j - 1];
+                if (total > current) {
+                    current = total;
                 }
             }
-            optimal[i] = m;
+            optimal[i] = current;
         }
         System.out.println(Arrays.toString(optimal));
         return optimal[n];
